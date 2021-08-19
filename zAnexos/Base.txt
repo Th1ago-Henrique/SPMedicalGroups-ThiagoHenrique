@@ -1,0 +1,48 @@
+clinica
+idClinica (PK)
+nomeClinica
+cnpj
+razaoSocial
+endereco
+
+tipoPermissao
+idTipoPermissao (PK)
+nomeTipoPermissao
+
+usuario
+idUsuario (PK)
+idTipoPermissao (FK)
+nome
+email
+senha
+
+especialidade
+idEspecialidade (PK)
+nomeEspecialidade
+
+medico
+idMedico (PK)
+idClinica (FK)
+idUsuario (FK)
+idEspecialidade (FK)
+crm
+
+paciente
+idPaciente (PK)
+idUsuario (FK)
+dataNasc
+telefone
+rg
+cpf
+endereco
+
+situacao
+idSituacao (PK)
+descricao
+
+consulta
+idConsulta (PK)
+idPaciente (FK)
+idMedico (FK)
+idSituacao (FK)
+dataConsulta
