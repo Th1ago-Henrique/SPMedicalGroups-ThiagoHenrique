@@ -1,15 +1,17 @@
-CREATE DATABASE SPMG_THIAGOM
+CREATE DATABASE SLA
 GO
 
-USE SPMG_THIAGOM
+USE SLA
 GO
 
 CREATE TABLE clinica(
 	idClinica INT PRIMARY KEY IDENTITY,
 	nomeClinica VARCHAR(40) NOT NULL,
-	cnpj CHAR(14) NOT NULL UNIQUE,
+	cnpj VARCHAR(20) NOT NULL UNIQUE,
 	razaoSocial VARCHAR(40) NOT NULL,
-	endereco VARCHAR(100) NOT NULL
+	endereco VARCHAR(100) NOT NULL,
+	horaAbertura TIME NOT NULL,
+	horaFechamento TIME NOT NULL
 );
 GO
 
@@ -28,17 +30,6 @@ CREATE TABLE usuario(
 );
 GO
 
-CREATE TABLE paciente(
-	idPaciente INT PRIMARY KEY IDENTITY,
-	idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario),
-	dataNasc DATE NOT NULL,
-	telefone VARCHAR(11) UNIQUE,
-	rg CHAR(9) NOT NULL UNIQUE,
-	cpf CHAR(11) NOT NULL UNIQUE,
-	endereco VARCHAR(100) NOT NULL
-);
-GO
-
 CREATE TABLE especialidade(
 	idEspecialidade INT PRIMARY KEY IDENTITY,
 	nomeEspecialidade VARCHAR(70)
@@ -50,7 +41,18 @@ CREATE TABLE medico(
 	idEspecialidade INT FOREIGN KEY REFERENCES especialidade(idEspecialidade),
 	idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario),
 	idClinica INT FOREIGN KEY REFERENCES clinica(idClinica),
-	crm CHAR(7) NOT NULL UNIQUE
+	crm VARCHAR(8) NOT NULL UNIQUE
+);
+GO
+
+CREATE TABLE paciente(
+	idPaciente INT PRIMARY KEY IDENTITY,
+	idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario),
+	dataNasc DATE NOT NULL,
+	telefone VARCHAR(12) UNIQUE,
+	rg VARCHAR(10) NOT NULL UNIQUE,
+	cpf VARCHAR(11) NOT NULL UNIQUE,
+	endereco VARCHAR(100) NOT NULL
 );
 GO
 
@@ -62,9 +64,12 @@ GO
 
 CREATE TABLE consulta(
 	idConsulta INT PRIMARY KEY IDENTITY,
+	idClinica INT FOREIGN KEY REFERENCES clinica(idClinica),
 	idPaciente INT FOREIGN KEY REFERENCES paciente(idPaciente),
 	idMedico INT FOREIGN KEY REFERENCES medico(idMedico),
 	idSituacao INT FOREIGN KEY REFERENCES situacao(idSituacao) DEFAULT(3),
 	dataConsulta DATETIME
 );
 GO
+
+SELECT * FROM clinica$
