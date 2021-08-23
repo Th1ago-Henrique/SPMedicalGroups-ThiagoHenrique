@@ -1,0 +1,3 @@
+USE ThiagoSPMG
+GO
+

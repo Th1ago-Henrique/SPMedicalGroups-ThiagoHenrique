@@ -1,7 +1,7 @@
-CREATE DATABASE SLA
+CREATE DATABASE ThiagoSPMG
 GO
 
-USE SLA
+USE ThiagoSPMG
 GO
 
 CREATE TABLE clinica(
@@ -71,5 +71,3 @@ CREATE TABLE consulta(
 	dataConsulta DATETIME
 );
 GO
-
-SELECT * FROM clinica$
