@@ -1,26 +1,26 @@
 USE ThiagoSPMG
 GO
 
-SELECT * FROM clinica$;
+SELECT * FROM clinica;
 GO
 
-SELECT * FROM tipoPermissao$;
+SELECT * FROM tipoPermissao;
 GO
 
-SELECT * FROM usuario$;
+SELECT * FROM usuario;
 GO
 
-SELECT * FROM especialidade$;
+SELECT * FROM especialidade;
 GO
 
-SELECT * FROM medico$;
+SELECT * FROM medico;
 GO
 
-SELECT * FROM paciente$;
+SELECT * FROM paciente;
 GO
 
-SELECT * FROM situacao$;
+SELECT * FROM situacao;
 GO
 
-SELECT * FROM consulta$;
+SELECT * FROM consulta;
 GO

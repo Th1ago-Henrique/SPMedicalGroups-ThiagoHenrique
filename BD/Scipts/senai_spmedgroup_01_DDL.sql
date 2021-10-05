@@ -15,15 +15,15 @@ CREATE TABLE clinica(
 );
 GO
 
-CREATE TABLE tipoPermissao(
-	idTipoPermissao INT PRIMARY KEY IDENTITY,
-	nomeTipoPermissao VARCHAR(15)
+CREATE TABLE tipoUsuario(
+	idTipoUsuario INT PRIMARY KEY IDENTITY,
+	nomeTipoUsuario VARCHAR(15)
 );
 GO
 
 CREATE TABLE usuario(
 	idUsuario INT PRIMARY KEY IDENTITY,
-	idTipoUsuario INT FOREIGN KEY REFERENCES tipoPermissao(idTipoPermissao),
+	idTipoUsuario INT FOREIGN KEY REFERENCES tipoUsuario(idTipoUsuario),
 	nome VARCHAR(30) NOT NULL,
 	email VARCHAR(50) NOT NULL UNIQUE,
 	senha VARCHAR(20) NOT NULL
